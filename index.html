@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0d1b2a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Family Ops" />
+  <meta name="description" content="Family Operations Center — your local family management dashboard." />
+  <title>Family Operations Center</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- OFFLINE WARNING BANNER -->
+  <div id="offlineBanner" class="offline-banner" role="alert">
+    ⚠ LOCAL ONLY · NO CLOUD SYNC · DATA MAY BE LOST IF BROWSER DATA IS CLEARED
+  </div>
+
+  <!-- APP SHELL -->
+  <div id="app">
+
+    <!-- HEADER -->
+    <header class="app-header" role="banner">
+      <div class="header-inner">
+        <div class="header-left">
+          <span class="app-logo">⬡</span>
+          <h1 class="app-title">Family Ops</h1>
+        </div>
+        <div class="header-right" id="headerActions"></div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="mainContent" class="main-content" role="main">
+      <!-- Screens injected here by app.js -->
+    </main>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+      <button class="nav-btn active" data-screen="today" aria-label="Today">
+        <span class="nav-icon">◈</span>
+        <span class="nav-label">Today</span>
+      </button>
+      <button class="nav-btn" data-screen="inbox" aria-label="Inbox">
+        <span class="nav-icon">◉</span>
+        <span class="nav-label">Inbox</span>
+        <span class="nav-badge" id="inboxBadge" aria-label="unread items" hidden></span>
+      </button>
+      <button class="nav-btn" data-screen="events" aria-label="Events">
+        <span class="nav-icon">◈</span>
+        <span class="nav-label">Events</span>
+      </button>
+      <button class="nav-btn" data-screen="calendar" aria-label="Calendar">
+        <span class="nav-icon">▦</span>
+        <span class="nav-label">Calendar</span>
+      </button>
+      <button class="nav-btn" data-screen="memories" aria-label="Memories">
+        <span class="nav-icon">✦</span>
+        <span class="nav-label">Memories</span>
+      </button>
+      <button class="nav-btn" data-screen="settings" aria-label="Settings">
+        <span class="nav-icon">⚙</span>
+        <span class="nav-label">Settings</span>
+      </button>
+    </nav>
+
+  </div><!-- /#app -->
+
+  <!-- MODAL OVERLAY -->
+  <div id="modalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <button class="modal-close" id="modalClose" aria-label="Close dialog">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer" id="modalFooter"></div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- SCRIPTS -->
+  <script src="db.js"></script>
+  <script src="backup.js"></script>
+  <script src="scanFlyer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
